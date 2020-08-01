@@ -29,6 +29,8 @@ def calificarRubrica(dic):
         salida = salida + "\t"*3 + key + "\n"
         for criterio in dic[key]:
             estu = input("Cuanto saco sobre %s en: %s?"%(dic[key][criterio],criterio))
+            if estu=="":
+                estu=str(dic[key][criterio])
             total += int(estu)
             salida += criterio + "\t" + estu + "/" + str(dic[key][criterio]) + "\n"
     encabezado = "Calificacion Final    " + str(total) + "/100" + "\n"*2
@@ -48,18 +50,22 @@ def ingresaFormato():
 
 def validaFormato(entrada):
     return  ("|" in entrada and entrada.count("|")== 1) or entrada== "-1"
-
 #a = crearDatos()
 rubrica = {
     "Tema1":{
-        "Correcto uso del for":20,
-        "Correcto manejo del while":30
+        "Solicitar correctamente los datos":10,
+        "Correcto manejo del for":20,
+        "Correcto manejo del print":10,
+        "Presentar segun el formato":10
     },
     "Tema2":{
-        "Establece correctamente la condicion":25,
-        "Calcula correctamente la persistencia" : 25
+        "Solicita correctamente los datos":10,
+        "Establece correctamente la condicion":10,
+        "Realiza correctamente las operaciones":10,
+        "Calcula correctamente la persistencia":20
     }
 }
+
 print("Inicio proceso de calificacion de deberes")
 opcion = input("Desea calificar un deber ? enter|-1")
 while opcion != "-1":
