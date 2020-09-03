@@ -24,15 +24,18 @@ def crearDatos():
 def calificarRubrica(dic):
     print("-"*10 + "Ingreso de calificaciones" + "-"*10)
     total = 0
-    salida = ""
     for key in dic:#{"Tema1":{"Criterio1":nota_total,"Criterio2":nota_total},"Tema2":{"Criterio1":nota}}
-        salida = salida + "\t"*3 + key + "\n"
+        salida =  "\t"*3 + key + "\n"
+        print(key + "\n")
         for criterio in dic[key]:
+            mensaje = ""
             estu = input("Cuanto saco sobre %s en: %s?"%(dic[key][criterio],criterio))
             if estu=="":
                 estu=str(dic[key][criterio])
+            else:
+                mensaje = input("Mensaje: ")
             total += int(estu)
-            salida += criterio + "\t" + estu + "/" + str(dic[key][criterio]) + "\n"
+            salida += criterio + "\t" + estu + "/" + str(dic[key][criterio]) + "\n"  + mensaje + "\n"*2
     encabezado = "Calificacion Final    " + str(total) + "/100" + "\n"*2
     salida = encabezado + salida + "\n"*2
     print("-"*40)
@@ -53,16 +56,12 @@ def validaFormato(entrada):
 #a = crearDatos()
 rubrica = {
     "Tema1":{
-        "Solicitar correctamente los datos":10,
-        "Correcto manejo del for":20,
-        "Correcto manejo del print":10,
-        "Presentar segun el formato":10
-    },
-    "Tema2":{
-        "Solicita correctamente los datos":10,
-        "Establece correctamente la condicion":10,
-        "Realiza correctamente las operaciones":10,
-        "Calcula correctamente la persistencia":20
+        "Parametros y variables de la funcion generaRetorno":15,
+        "Generacion de los archivos de nomina por cada ciudad":20,
+		"Incluir cabezera del archivo": 10,
+        "Contenido del archivo de cada nomina":30,
+		"Cerrar correctamente cada archivo":10,
+		"No existen errores de sintaxis y el programa se ejecuta correctamente":15
     }
 }
 
