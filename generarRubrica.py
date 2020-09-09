@@ -39,7 +39,7 @@ def calificarRubrica(dic):
             else:
                 mensaje = input("Mensaje: ")
             total += int(estu)
-            salida += criterio + "\t" + estu + "/" + str(dic[key][criterio]) + "\n"  + mensaje + "\n"*2
+            salida += criterio + "\t" + estu + "/" + str(dic[key][criterio]) + "\n"  + mensaje + "\n"
     encabezado = "Calificacion Final    " + str(total) + "/100" + "\n"*2
     salida = encabezado + salida + "\n"*2
     print("-"*40)
@@ -82,13 +82,13 @@ with open('rubrica.json') as json_file:
     rubrica = json.load(json_file) 
 
 print("Inicio proceso de calificacion de deberes")
-op= ""
+print("""
+	1)Crear rubrica
+	2)Presentar rubrica actual
+	3)Calificar usando la rubrica actual
+	""")
+op = input("Ingrese opcion:")
 while op != "-1":
-	print("""
-		1)Crear rubrica
-		2)Presentar rubrica actual
-		3)Calificar usando la rubrica actual
-		""")
 	if op == "1":
 		rubrica = crearRubrica()
 	elif op == "2":
@@ -106,8 +106,13 @@ while op != "-1":
 		print("Los deberes han sido calificados")
 	else:
 		print("opcion no valida")
+	print("""
+		1)Crear rubrica
+		2)Presentar rubrica actual
+		3)Calificar usando la rubrica actual
+		""")
 	op = input("Ingrese opcion:")
-
+print("Programa terminado")
 """
 clipboard.copy(corregido)
 playsound("inicio.mp3")
