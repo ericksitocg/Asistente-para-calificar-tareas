@@ -82,29 +82,32 @@ with open('rubrica.json') as json_file:
     rubrica = json.load(json_file) 
 
 print("Inicio proceso de calificacion de deberes")
-print("""
-	1)Crear rubrica
-	2)Presentar rubrica actual
-	3)Calificar usando la rubrica actual
-	""")
-op = input("Ingrese opcion:")
-if op == "1":
-	rubrica = crearRubrica()
-elif op == "2":
-	print(rubrica)
-elif op == "3":
-	opcion = input("Desea calificar un deber ? enter|-1")
-	while opcion != "-1":
-	    calificarRubrica(rubrica)
+op= ""
+while op != "-1":
+	print("""
+		1)Crear rubrica
+		2)Presentar rubrica actual
+		3)Calificar usando la rubrica actual
+		""")
+	if op == "1":
+		rubrica = crearRubrica()
+	elif op == "2":
+		print(rubrica)
+	elif op == "3":
+		opcion = input("Desea calificar un deber ? enter|-1")
+		while opcion != "-1":
+		    calificarRubrica(rubrica)
 
-	    playsound("inicio.mp3")
-	    sleep(10)
-	    playsound("fin.mp3")
+		    playsound("inicio.mp3")
+		    sleep(10)
+		    playsound("fin.mp3")
 
-	    opcion = input("Desea calificar un nuevo deber? enter|-1")
-	print("Los deberes han sido calificados")
-else:
-	print("opcion no valida")
+		    opcion = input("Desea calificar un nuevo deber? enter|-1")
+		print("Los deberes han sido calificados")
+	else:
+		print("opcion no valida")
+	op = input("Ingrese opcion:")
+
 """
 clipboard.copy(corregido)
 playsound("inicio.mp3")
