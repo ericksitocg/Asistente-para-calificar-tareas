@@ -25,8 +25,8 @@ def calificarRubrica(dic):
     print("-"*10 + "Ingreso de calificaciones" + "-"*10)
     total = 0
     for key in dic:#{"Tema1":{"Criterio1":nota_total,"Criterio2":nota_total},"Tema2":{"Criterio1":nota}}
-        salida =  "\t"*3 + key + "\n"
-        print(key + "\n")
+        salida = salida + "\t"*3 + key + "\n"
+        print("\t"*3 + key + "\n")
         for criterio in dic[key]:
             mensaje = ""
             estu = input("Cuanto saco sobre %s en: %s?"%(dic[key][criterio],criterio))
