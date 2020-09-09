@@ -24,6 +24,7 @@ def crearDatos():
 def calificarRubrica(dic):
     print("-"*10 + "Ingreso de calificaciones" + "-"*10)
     total = 0
+    salida = ""
     for key in dic:#{"Tema1":{"Criterio1":nota_total,"Criterio2":nota_total},"Tema2":{"Criterio1":nota}}
         salida = salida + "\t"*3 + key + "\n"
         print("\t"*3 + key + "\n")
@@ -57,12 +58,12 @@ def validaFormato(entrada):
 rubrica = {
     "Tema1":{
         "Parametros y variables de la funcion generaRetorno":15,
-        "Generacion de los archivos de nomina por cada ciudad":20,
-		"Incluir cabezera del archivo": 10,
-        "Contenido del archivo de cada nomina":30,
-		"Cerrar correctamente cada archivo":10,
-		"No existen errores de sintaxis y el programa se ejecuta correctamente":15
-    }
+        "Generacion de los archivos de nomina por cada ciudad":20
+    },
+    "Tema2":{
+    "Parametros y variables de la funcion generaRetorno":15,
+    "Generacion de los archivos de nomina por cada ciudad":20
+	}
 }
 
 print("Inicio proceso de calificacion de deberes")
